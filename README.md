@@ -1,59 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Website Portofolio & Blog Pribadi (AFL-1)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website portofolio dan blog pribadi yang dibangun menggunakan framework **Laravel** dengan arsitektur **MVC (Model-View-Controller)**, **Blade Templating Engine**, dan **Bootstrap 5**. Proyek ini dikembangkan untuk memenuhi tugas Assessment for Learning 1 (AFL-1).
 
-## About Laravel
+**Identitas Mahasiswa:**
+- **Nama:** Frederich Irawan
+- **NIM:** 1076012514001
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur & Halaman Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Home (`/`):** Halaman beranda berisi foto profil, perkenalan singkat, serta tombol navigasi ke halaman Portofolio dan Tentang Saya.
+- **About (`/about`):** Informasi mengenai latar belakang, keahlian, dan pengalaman.
+- **Portfolio (`/portfolio`):** Menampilkan daftar karya/proyek menggunakan *reusable* Blade Component (`<x-portfolio-card />`) dengan tata letak grid responsif dan *cropping* gambar rasio 16:9.
+- **Blog (`/blog`):** Daftar artikel dengan gambar, kategori, tanggal publikasi, dan ringkasan.
+- **Detail Blog (`/blog/{id}`):** Halaman dinamis yang menampilkan detail lengkap setiap artikel berdasarkan parameter `id` pada rute, lengkap dengan penanganan *error* `404` jika ID tidak ditemukan.
+- **Contact (`/contact`):** Halaman informasi dan formulir kontak.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Teknologi yang Digunakan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend:** PHP & Laravel Framework
+- **Frontend:** Laravel Blade, HTML5, CSS3, Bootstrap 5 (CDN)
+- **Local Development:** Laravel Herd
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Cara Menjalankan Aplikasi
 
-### Premium Partners
+1. **Clone repository ini:**
+   ```bash
+   git clone [https://github.com/erichyuhu/Web-Develop-Laravel.git](https://github.com/erichyuhu/Web-Develop-Laravel.git)
+   cd NAMA_REPO
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. **Install dependensi PHP:**
+   ```bash
+   composer install
+   ```
 
-## Contributing
+3. **Salin file konfigurasi `.env`:**
+   ```bash
+   cp .env.example .env
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Generate Application Key:**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+5. **Jalankan server lokal:**
+   ```bash
+   php artisan serve
+   ```
+   Buka browser dan akses `http://127.0.0.1:8000` (atau akses langsung melalui domain lokal jika menggunakan Laravel Herd).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Penggunaan AI
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Dalam pengerjaan proyek ini, AI digunakan sebagai alat bantu (*coding assistant*) untuk:
+- Membantu *debugging* dan memecahkan *error* pada Laravel (seperti *passing* data ke Blade Component, *routing* dinamis halaman detail blog, dan pemanggilan *path* aset lokal dengan helper `asset()`).
+- Memberikan referensi penggunaan *class* Bootstrap 5 untuk tata letak responsif dan pemotongan rasio gambar (`ratio-16x9` dan `object-fit-cover`).
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Seluruh integrasi kode, penyesuaian konten, aset gambar, serta pengujian akhir dilakukan dan diverifikasi secara mandiri.
